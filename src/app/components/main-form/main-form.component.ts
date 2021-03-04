@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Renderer2 } from '@angular/core';
 import { FormGroup,  FormBuilder,  Validators } from '@angular/forms';
 
 @Component({
@@ -8,15 +8,17 @@ import { FormGroup,  FormBuilder,  Validators } from '@angular/forms';
 })
 export class MainFormComponent implements OnInit {
 
+  bgImage = '/assets/fondo.jpg';
+  logoImage = '/assets/logo.jpg'
   angForm: FormGroup;
   displayPasswError = false;
   displayEmailError = false;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private renederer: Renderer2) {
    }
-
-   
+ 
   ngOnInit() {
+    this.renederer.setStyle (document.body,'margin','0');
     this.createForm();
   }
 
@@ -33,8 +35,16 @@ export class MainFormComponent implements OnInit {
     if (!this.displayEmailError && !this.displayPasswError){
       // Hacer lo que sea aquí
       console.log ('OK');
-    }
-    
+    }    
   }
 
+  getBg(){
+    return this.bgImage;
+  }
+
+  getLogo(){
+    return this.logoImage;
+  }
+
+  
 }
