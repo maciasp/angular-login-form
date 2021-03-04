@@ -28,8 +28,8 @@ export class MainFormComponent implements OnInit {
   }
 
   checkSendButton(){
-    this.displayPasswError = this.angForm.controls['passw'].status === 'INVALID';// ? true : false;
-    this.displayEmailError = this.angForm.controls['email'].status === 'INVALID';// ? true : false;
+    this.displayPasswError = this.angForm.controls['passw'].status === 'INVALID';
+    this.displayEmailError = this.angForm.controls['email'].status === 'INVALID';
     if (!this.displayEmailError && !this.displayPasswError){
       // Hacer lo que sea aquí
       console.log ('OK');
