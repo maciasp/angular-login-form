@@ -1,0 +1,35 @@
+<div class="card-container">
+    <div class="card">
+        <h2>Formulario</h2>
+        <div class="form-container">
+            <form [formGroup]="angForm" novalidate>
+                <div class="form-group">
+                    <div class="form-row">
+                        <label class="center-block">e-mail:
+                            <input class="form-control" formControlName="email">
+                        </label>
+                    </div>
+                    <div class="form-row form-error" *ngIf="displayEmailError">
+                        El campo "Email" debe contener una dirección de email válida.
+                    </div>
+                    <div class="form-row">
+                        <label>Password:
+                            <input type="password" class="form-control" formControlName="passw">
+                        </label>
+                    </div>
+                    <div class="form-row form-error" *ngIf="displayPasswError">
+                        El campo "Password" no puede estar vacío
+                    </div>
+                    <div class="form-row" >
+                        <div id="send-btn" (click)="checkSendButton()" class="button">Enviar</div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- 
+<p>Valores: {{ angForm.value | json }}</p>
+<p>Estado: {{ angForm.status | json }}</p>
+-->
